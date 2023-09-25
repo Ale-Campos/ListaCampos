@@ -1,12 +1,19 @@
+.btn-filter {
+    width: 200px;
+    margin: auto;
+}
 
 .list-container {
+    display: flex;
+    flex-direction: column;
     margin-top: 7vh;
     margin-left: 1vh;
+    justify-content: center;
 }
 .lista-alumnos {
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
 }
 .card {
     justify-content: center;
