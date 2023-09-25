@@ -1,0 +1,20 @@
+<div class="list-container">
+    <button (click)="soloAprobados = !soloAprobados">{{soloAprobados?'Mostrar todos':'Mostrar solo aprobados'}}</button>
+    <div class="lista-alumnos">
+        <div *ngFor="let alumno of alumnos">
+            <div [style.display]="(soloAprobados && !revisarAprobado(alumno))? 'none':''"  class="card">
+                <h3>{{ alumno.nombre }}</h3>
+                <p>Edad: {{ alumno.edad }}</p>
+                <p>Curso: {{ alumno.curso }}</p>
+                <p>Promedio: {{ alumno.promedio }}</p>
+                <p>Inscripcion: {{ alumno.fechaInscripcion | date }}</p>
+                <p [ngStyle]="{'background-color':'green'}" *ngIf="revisarAprobado(alumno); else desaprobadoTemplate">Aprobado</p>
+            </div>
+        </div>
+        
+        <ng-template #desaprobadoTemplate>
+            <p [ngStyle]="{'background-color':'red'}">Desaprobado</p>
+        </ng-template> 
+    </div>
+</div>
+
